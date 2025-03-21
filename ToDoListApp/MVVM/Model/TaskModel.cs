@@ -1,4 +1,4 @@
-﻿namespace ToDoListApp.Model
+﻿namespace ToDoListApp.MVVM.Model
 {
     public class TaskModel
     {

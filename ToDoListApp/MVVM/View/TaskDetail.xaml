@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoListApp.View.TaskDetail"
+             Title="Editar Tarea"
+             BackgroundColor="#FDE0E0">
+
+    <StackLayout Padding="20" Spacing="20">
+        <Label Text="Editar Tarea"
+               FontSize="28"
+               FontAttributes="Bold"
+               TextColor="#D16D84"
+               HorizontalOptions="Center" />
+
+        <Entry Text="{Binding SelectedTask.Name}" 
+               Placeholder="Nombre de la tarea" 
+               TextColor="Black"
+               BackgroundColor="White"
+               HeightRequest="50"
+               FontSize="16" />
+
+        <StackLayout Orientation="Horizontal" 
+                     Spacing="10" 
+                     VerticalOptions="Center">
+            <CheckBox IsChecked="{Binding SelectedTask.IsCompleted}" 
+                      Color="#D16D84" 
+                      HorizontalOptions="Start" />
+            <Label Text="Completada"
+                   FontSize="16"
+                   VerticalOptions="Center"
+                   TextColor="Black" />
+        </StackLayout>
+
+        <Button Text="Guardar"
+                BackgroundColor="#D16D84"
+                TextColor="White" 
+                Command="{Binding SaveTaskCommand}"
+                CornerRadius="25"
+                HeightRequest="50"
+                FontSize="18"
+                Padding="10" />
+
+        <Button Text="Eliminar"
+                BackgroundColor="Transparent"
+                TextColor="#D16D84"
+                BorderColor="#D16D84"
+                BorderWidth="2"
+                CornerRadius="25"
+                HeightRequest="50"
+                FontSize="18"
+                Command="{Binding DeleteTaskCommand}" />
+    </StackLayout>
+
+</ContentPage>

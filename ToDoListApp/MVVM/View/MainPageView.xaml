@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoListApp.View.MainPageView"
+             Title="Lista de Tareas"
+             BackgroundColor="#FDE0E0">
+
+    <ScrollView Padding="15">
+        <StackLayout Spacing="15">
+            <Label Text="Mis Tareas"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#D16D84" />
+            <CollectionView ItemsSource="{Binding Tasks}"
+                            SelectionMode="Single"
+                            SelectionChanged="OnTaskSelected"
+                            BackgroundColor="White">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#D16D84"
+                               Padding="10"
+                               BackgroundColor="White"
+                               Margin="0,0,0,10">
+                            <Grid RowDefinitions="Auto"
+                                  ColumnDefinitions="Auto, *, Auto">
+                                <CheckBox IsChecked="{Binding IsCompleted}"
+                                          HorizontalOptions="Center"
+                                          VerticalOptions="Center"
+                                          Color="#D16D84" />
+                                <Label Text="{Binding Name}"
+                                       TextColor="Black"
+                                       FontSize="18"
+                                       VerticalOptions="Center"
+                                       Grid.Column="1"
+                                       Margin="10,0" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Agregar Tarea"
+                    TextColor="White"
+                    BackgroundColor="#D16D84"
+                    Command="{Binding AddTaskCommand}"
+                    CornerRadius="20"
+                    HeightRequest="50"
+                    FontSize="18"
+                    Padding="10" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

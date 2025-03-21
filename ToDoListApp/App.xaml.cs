@@ -1,5 +1,4 @@
 ﻿using ToDoListApp.View;
-using ToDoListApp.ViewModel;
 
 namespace ToDoListApp
 {
@@ -8,7 +7,6 @@ namespace ToDoListApp
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new MainPageView());
         }
     }
